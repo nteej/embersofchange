@@ -21,11 +21,7 @@
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-                    viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
+                <img src="{{ asset('/public/logo.png') }}" style="height:75px;width:75px"></img>
                 <span
                     class="ml-3 text-xl">{{ $translationHelper->translate('welcome.site_header',"Embers for change") }}</span>
             </a>
@@ -33,12 +29,12 @@
                 class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
                 <a href="/"
                     class="mr-5 hover:text-gray-900">{{ $translationHelper->translate('welcome.link_home',"Home") }}</a>
-                <a href="https://www.youtube.com/@UNWomenTrainingCentre"
+                <a href="https://youtube.com/@embersofchange?si=s4bPoScQhxG7mprA" target="_blank"
                     class="mr-5 hover:text-gray-900">{{ $translationHelper->translate('welcome.link_traing',"E-Learning") }}</a>
-                <a href="/"
-                    class="mr-5 hover:text-gray-900">{{ $translationHelper->translate('welcome.link_contact',"Contact us") }}</a>
+                <a href="https://www.youtube.com/@UNWomenTrainingCentre" target="_blank"
+                    class="mr-5 hover:text-gray-900">{{ $translationHelper->translate('welcome.link_contact',"External Sources") }}</a>
                 <a href="#" class="mr-5 hover:text-gray-900">{{ app()->getLocale() }}</a>
-                <select id="language-selector" class="mr-5 hover:text-gray-900">
+                <select id="language-selector" class="mr-5 hover:text-gray-900" style="max-width: 150px;">
 
                     @foreach($languages as $language)
                         @if(app()->getLocale()== $language['code'])
@@ -77,32 +73,7 @@
 
                 </script>
             </nav>
-            @if(Route::has('login'))
-                @auth
-                    <a href="{{ url('/home') }}"
-                        class="mr-5 hover:text-gray-900">{{ $translationHelper->translate('welcome.link_dashboard',"Dashboard") }}</a>
-
-                @else
-                    <a href="{{ route('login') }}"
-                        class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">{{ $translationHelper->translate('welcome.link_signin',"SignIn") }}
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                    <a href="{{ route('register') }}"
-                        class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">{{ $translationHelper->translate('welcome.link_signup',"Register") }}
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                @endauth
-            @else
-
-            @endif
-
-
+            
         </div>
     </header>
     <section class="text-gray-600 body-font">
@@ -128,35 +99,11 @@
             </div>
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                 <img class="object-cover object-center rounded" alt="hero"
-                    src="{{ asset('home.jpg') }}">
+                    src="{{ asset('/public/home.jpeg') }}">
             </div>
 
         </div>
-        <div
-            class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <div id="vizContainer" style="width:800px; height:700px;"></div>
-        </div>
-        <object
-            data="https://public.tableau.com/app/profile/surekha.medapati/viz/ClimateVulnarability/Sheet1?publish=yes"
-            width="800" height="700">
-            <p>Your browser does not support iframes.</p>
-        </object>
-
-
-
-        <script>
-            var vizUrl =
-                'https://public.tableau.com/app/profile/surekha.medapati/viz/ClimateVulnarability/Sheet1?publish=yes'; // Update with your specific dashboard URL
-            var options = {
-                hideTabs: true,
-                width: '800px',
-                height: '700px'
-            };
-
-            var vizContainer = document.getElementById('vizContainer');
-            var viz = new tableau.Viz(vizContainer, vizUrl, options);
-
-        </script>
+        
     </section>
 </body>
 

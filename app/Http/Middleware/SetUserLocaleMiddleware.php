@@ -32,7 +32,7 @@ class SetUserLocaleMiddleware
         $userLanguage = $request->header('Accept-Language');
 
         // Get user's IP address
-        $ip = '193.166.125.254';//'103.207.170.147';//'193.166.125.254';fin//$request->ip();
+        $ip = $request->ip();//'193.166.125.254';//'103.207.170.147';//'193.166.125.254';fin//$request->ip();
         //dd($ip);
         //$loc = GeoIP::getLocation($ip);
         //dd($loc);
